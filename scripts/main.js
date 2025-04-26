@@ -1,51 +1,75 @@
-document.getElementById('imageInput').addEventListener('change', function (e) {
-  const file = e.target.files[0];
-  if (!file) return;
+let selectedFile = null;
 
-  const reader = new FileReader();
-  reader.onload = function (event) {
-    const img = new Image();
-    img.src = event.target.result;
-
-    img.onload = function () {
-      document.getElementById('previewContainer').innerHTML = '';
-      document.getElementById('previewContainer').appendChild(img);
-
-      EXIF.getData(img, function () {
-        const allMeta = EXIF.getAllTags(this);
-        displayMetadata(allMeta);
-
-        if (allMeta.GPSLatitude && allMeta.GPSLongitude) {
-          const lat = convertGPS(allMeta.GPSLatitude, allMeta.GPSLatitudeRef);
-          const lng = convertGPS(allMeta.GPSLongitude, allMeta.GPSLongitudeRef);
-          showMap(lat, lng);
-        }
-
-        // Dummy AI lookup
-        document.getElementById('aiResult').innerText = fakeAILookup(img);
-      });
-    };
-  };
-  reader.readAsDataURL(file);
+// Save the selected file but don't process it yet
+document.getElementById('imageInput').addEventListener('change', function(event) {
+  selectedFile = event.target.files[0];
 });
 
-function displayMetadata(data) {
-  const container = document.getElementById('metadataContainer');
-  container.innerHTML = '<h3>📋 Metadata</h3><pre>' + JSON.stringify(data, null, 2) + '</pre>';
+// Now when Submit button is clicked, process it
+document.getElementById('submitBtn').addEventListener('click', function() {
+  if (!selectedFile) {
+    alert("Please select an image first.");
+    return;
+  }
+  handleFile(selectedFile);
+});
+
+function handleFile(file) {
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = new Image();
+    img.onload = function() {
+      EXIF.getData(img, function() {
+        const allMetaData = EXIF.getAllTags(this);
+        displayMetadata(allMetaData);
+        if (allMetaData.GPSLatitude && allMetaData.GPSLongitude) {
+          const lat = convertDMSToDD(allMetaData.GPSLatitude, allMetaData.GPSLatitudeRef);
+          const lon = convertDMSToDD(allMetaData.GPSLongitude, allMetaData.GPSLongitudeRef);
+          initializeMap(lat, lon);
+        }
+      });
+    };
+    img.src = e.target.result;
+
+    // Do fake AI lookup
+    fakeAILookup(file);
+  };
+  reader.readAsDataURL(file);
 }
 
-function convertGPS(coord, ref) {
-  const decimal = coord[0] + coord[1] / 60 + coord[2] / 3600;
-  return (ref === 'S' || ref === 'W') ? -decimal : decimal;
+function displayMetadata(metadata) {
+  let output = "<h3>Metadata:</h3><ul>";
+  for (let key in metadata) {
+    output += `<li><b>${key}:</b> ${metadata[key]}</li>`;
+  }
+  output += "</ul>";
+  document.getElementById('metadata').innerHTML = output;
 }
 
-function fakeAILookup(img) {
-  // This can be replaced with a real ML API later
-  const phrases = [
-    "This looks like a famous monument.",
-    "Possibly clicked at a tourist location.",
-    "This may be a popular structure or historical site.",
-    "Could be an architectural landmark."
-  ];
-  return phrases[Math.floor(Math.random() * phrases.length)];
+function convertDMSToDD(dms, ref) {
+  const degrees = dms[0];
+  const minutes = dms[1];
+  const seconds = dms[2];
+  let dd = degrees + minutes/60 + seconds/3600;
+  if (ref === "S" || ref === "W") {
+    dd = dd * -1;
+  }
+  return dd;
+}
+
+function fakeAILookup(file) {
+  const lookupArea = document.getElementById('ai-lookup');
+  lookupArea.innerHTML = "Generating description...";
+
+  setTimeout(() => {
+    const fileName = file.name.toLowerCase();
+    let description = "An image of something interesting.";
+
+    if (fileName.includes("taj")) description = "An image of the Taj Mahal, India.";
+    else if (fileName.includes("beach")) description = "A beautiful beach scenery.";
+    else if (fileName.includes("dog")) description = "A cute dog captured.";
+    else if (fileName.includes("mountain")) description = "A stunning mountain landscape.";
+
+    lookupArea.innerHTML = description;
+  }, 1000);
 }
