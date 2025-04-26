@@ -1,16 +1,16 @@
+let mapInitialized = false;
 let map;
 
-function showMap(lat, lng) {
-  if (!map) {
-    map = L.map('map').setView([lat, lng], 15);
+function initializeMap(lat, lon) {
+  if (!mapInitialized) {
+    map = L.map('map').setView([lat, lon], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
+      attribution: 'Map data © OpenStreetMap contributors'
     }).addTo(map);
+    L.marker([lat, lon]).addTo(map);
+    mapInitialized = true;
   } else {
-    map.setView([lat, lng], 15);
+    map.setView([lat, lon], 13);
+    L.marker([lat, lon]).addTo(map);
   }
-
-  L.marker([lat, lng]).addTo(map)
-    .bindPopup('📍 Image Location')
-    .openPopup();
 }
