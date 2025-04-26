@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Metadata Viewer + AI Map</title>
+  <link rel="stylesheet" href="style/styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+</head>
+<body>
+  <h1>📸 Image Metadata AI Viewer</h1>
+  <input type="file" id="imageInput" accept="image/*" />
+  <div id="previewContainer"></div>
+  <div id="metadataContainer"></div>
+  <div id="map" style="height: 400px;"></div>
+  <div id="aiLookup">
+    <h3>🔍 AI Image Lookup</h3>
+    <p id="aiResult">Upload an image to see AI-generated description.</p>
+    <small>*This feature may not be 100% accurate.</small>
+  </div>
+
+  <script src="scripts/exif.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="scripts/map.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
