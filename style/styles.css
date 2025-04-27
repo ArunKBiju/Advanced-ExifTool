@@ -3,22 +3,181 @@ body {
   padding: 20px;
   max-width: 800px;
   margin: auto;
+  color: white;
+  background-color: rgb(29, 27, 27);
+  background-image: url("/gradient.png");
 }
-#previewContainer img {
-  max-width: 100%;
-  margin-top: 10px;
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
 }
-#metadataContainer {
+
+#submitBtn {
   margin-top: 20px;
-  background: #f2f2f2;
-  padding: 10px;
+  padding: 10px 30px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  border: none;
   border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+#submitBtn:hover {
+  background-color: #388e3c;
+}
+
 #map {
   margin-top: 20px;
   border-radius: 8px;
+  height: 300px;
+  width: 100%;
 }
+
 #aiLookup {
+  margin-top: 20px;
+  background: #e8f5e9;
+  padding: 10px;
+  border-left: 5px solid #4caf50;
+  border-radius: 8px;
+}
+
+.drag-area {
+  border: 2px dashed #4caf50;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.drag-area.active {
+  border-color: #388e3c;
+}
+
+.drag-area .icon {
+  font-size: 80px;
+  color: #4caf50;
+}
+
+.drag-area header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.drag-area span {
+  display: block;
+  margin: 10px 0;
+}
+
+.drag-area button {
+  margin-top: 10px;
+  padding: 8px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.drag-area img {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* New section for the metadata display */
+#metadata {
+  margin-top: 20px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #222;
+  padding: 10px;
+}
+
+.metadata-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.metadata-table th, .metadata-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+.metadata-table th {
+  background-color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metadata-table tr:nth-child(even) {
+  background-color: #2a2a2a;
+}
+
+.metadata-table tr:hover {
+  background-color: #3a3a3a;
+}
+
+.metadata-table td {
+  width: 50%; /* Equally divide space between tag and value */
+}
+
+.metadata-table .tag {
+  font-weight: bold;
+}
+
+.metadata-table .value {
+  font-style: italic;
+}
+
+/* Center content utility class */
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* For the Image Preview Container */
+#imagePreviewContainer {
+  margin: 20px 0;
+  text-align: center;
+}
+
+#imagePreviewArea {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#imagePreviewArea img {
+  max-height: 200px;
+  width: auto;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#imagePreviewArea img:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+#imagePreviewArea img:active {
+  transform: scale(1);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Small section for AI Image Lookup */
+#ai-lookup {
   margin-top: 20px;
   background: #e8f5e9;
   padding: 10px;
