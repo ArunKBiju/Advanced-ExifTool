@@ -10,21 +10,36 @@
 <body>
   <div class="container">
     <h1>📸 Image Metadata AI Viewer</h1>
-    
-    <input type="file" id="imageInput" accept="image/*">
-    <button id="submitBtn">Submit</button> <!-- 🔥 NEW BUTTON -->
 
-    <div id="metadata"></div>
-    
+    <div class="drag-area" id="dragArea">
+      <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+      <header>Drag & Drop to Upload File</header>
+      <span>OR</span>
+      <button id="browseBtn">Browse File</button>
+      <input type="file" id="imageInput" accept="image/*" hidden>
+    </div>
+
+    <!-- Mini Image Preview -->
+    <div id="imagePreviewContainer" class="center-content">
+      <div id="imagePreviewArea"></div>
+    </div>
+
+    <div class="center-content">
+      <button id="submitBtn">Submit</button>
+    </div>
+
+    <div id="metadata">
+    </div>
+
     <h2>📍 Location Map</h2>
-    <div id="map" style="height: 300px;"></div>
-    
+    <div id="map"></div>
+
     <h2>🔍 AI Image Lookup</h2>
     <div id="ai-lookup">Upload an image to see AI-generated description.</div>
     <small>*This feature may not be 100% accurate.</small>
   </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
   <script src="scripts/map.js"></script>
   <script src="scripts/main.js"></script>
