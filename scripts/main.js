@@ -1,11 +1,47 @@
 let selectedFile = null;
 
-// Save the selected file but don't process it yet
-document.getElementById('imageInput').addEventListener('change', function(event) {
-  selectedFile = event.target.files[0];
+document.getElementById('browseBtn').addEventListener('click', () => {
+  document.getElementById('imageInput').click();
 });
 
-// Now when Submit button is clicked, process it
+document.getElementById('imageInput').addEventListener('change', function(event) {
+  selectedFile = event.target.files[0];
+  displayImagePreview(selectedFile);
+});
+
+document.getElementById('dragArea').addEventListener('dragover', (e) => {
+  e.preventDefault();
+  document.getElementById('dragArea').classList.add('dragover');
+});
+
+document.getElementById('dragArea').addEventListener('dragleave', (e) => {
+  e.preventDefault();
+  document.getElementById('dragArea').classList.remove('dragover');
+});
+
+document.getElementById('dragArea').addEventListener('drop', (e) => {
+  e.preventDefault();
+  document.getElementById('dragArea').classList.remove('dragover');
+  selectedFile = e.dataTransfer.files[0];
+  displayImagePreview(selectedFile);
+});
+
+function displayImagePreview(file) {
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    const img = new Image();
+    img.onload = function() {
+      const previewArea = document.getElementById('imagePreviewArea');
+      previewArea.innerHTML = ""; 
+      previewArea.appendChild(img);
+    };
+    img.src = e.target.result;
+  };
+  
+  reader.readAsDataURL(file);
+}
+
 document.getElementById('submitBtn').addEventListener('click', function() {
   if (!selectedFile) {
     alert("Please select an image first.");
@@ -31,7 +67,6 @@ function handleFile(file) {
     };
     img.src = e.target.result;
 
-    // Do fake AI lookup
     fakeAILookup(file);
   };
   reader.readAsDataURL(file);
