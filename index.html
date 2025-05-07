@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Advanced ExifTool</title>
+  <title>📸 Image Metadata AI Viewer</title>
   <link rel="stylesheet" href="style/styles.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
 </head>
 <body>
   <div class="container">
-<h1>Advanced ExifTool by <a href="https://arunkbiju.github.io/My-Portfolio" target="_blank" style="color: #4caf50; text-decoration: none;">Arun K Biju</a></h1>
+    <h1>Image Metadata AI Viewer</h1>
 
     <div class="drag-area" id="dragArea">
       <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
@@ -31,12 +31,20 @@
     <div id="metadata">
     </div>
 
-    <h2>📍 Location Map</h2>
+    <h2>Map View</h2>
     <div id="map"></div>
 
-    <h2>🔍 AI Image Lookup</h2>
+    <h2>AI Image Lookup</h2>
     <div id="ai-lookup">Upload an image to see AI-generated description.</div>
     <small>*This feature may not be 100% accurate.</small>
+  </div>
+
+  <div class="center-content">
+    <a href="index.html">
+      <button id="refreshBtn">
+      Search new image
+    </button>
+  </a>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
