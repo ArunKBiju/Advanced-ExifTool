@@ -46,8 +46,8 @@ A lightweight web-based tool to extract and visualize image metadata, including 
 Developed by **Arun K Biju**  
 Full Stack Developer | MERN Stack Enthusiast  
 📧 Email: [arunkbijuofficial@gmail.com](mailto:arunkbijuofficial@gmail.com)  
-🔗 Portfolio: [https://your-portfolio-link.com](https://your-portfolio-link.com)  
-🔗 LinkedIn: [https://www.linkedin.com/in/arunkbiju](https://www.linkedin.com/in/arunkbiju)
+🔗 Portfolio: [https://arunkbiju.github.io/My-Portfolio/](https://arunkbiju.github.io/My-Portfolio/)  
+🔗 LinkedIn: [https://www.linkedin.com/in/arun-k-biju](https://www.linkedin.com/in/arun-k-biju)
 
 ---
 
