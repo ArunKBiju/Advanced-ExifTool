@@ -44,7 +44,10 @@ A lightweight web-based tool to extract and visualize image metadata, including 
 ## Credits
 
 Developed by **Arun K Biju**  
-Full Stack Developer | MERN Stack Enthusiast
+Full Stack Developer | MERN Stack Enthusiast  
+📧 Email: [arunkbijuofficial@gmail.com](mailto:arunkbijuofficial@gmail.com)  
+🔗 Portfolio: [https://your-portfolio-link.com](https://your-portfolio-link.com)  
+🔗 LinkedIn: [https://www.linkedin.com/in/arunkbiju](https://www.linkedin.com/in/arunkbiju)
 
 ---
 
@@ -52,6 +55,6 @@ Full Stack Developer | MERN Stack Enthusiast
 
 This repository is not open-source.
 
-You are not permitted to copy, download, fork, or reuse any part of the code, design, or assets from this project without explicit written consent from the author.
+You are not permitted to copy, fork, or reuse any part of the code, design, or assets from this project without prior consent.
 
 All rights reserved © 2025 Arun K Biju.
