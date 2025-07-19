@@ -44,8 +44,20 @@ A lightweight web-based tool to extract and visualize image metadata, including 
 
 ## Screenshots
 
-<img width="1919" height="610" alt="Image" src="https://github.com/user-attachments/assets/e99441d2-21cb-4568-bf27-0cdedb8a2e2a" />
-<img width="1905" height="1079" alt="Image" src="https://github.com/user-attachments/assets/18b993a5-383b-42a0-b20a-3454aee7f8b7" />
+> Metadata Collection from images
+
+- Direct Images
+<img width="1908" height="1079" alt="Image" src="https://github.com/user-attachments/assets/00a8ae21-5d71-4bac-a609-9b91b9c9f9ad" />
+<img width="1908" height="1079" alt="Image" src="https://github.com/user-attachments/assets/71de7905-1cd7-4cea-8dab-d71468e2422f" />
+
+- Edited Images
+<img width="1905" height="1079" alt="Image" src="https://github.com/user-attachments/assets/60095756-024c-46e5-a2fe-be9cc952930a" />
+
+> Map View
+<img width="1905" height="1079" alt="Image" src="https://github.com/user-attachments/assets/c200b428-0c97-4451-aa23-e1398bbef006" />
+
+> AI Detection
+<img width="1905" height="1079" alt="Image" src="https://github.com/user-attachments/assets/f92cdb55-b2bc-4a4d-bbb9-f9e92d085dc0" />
 
 ---
 
