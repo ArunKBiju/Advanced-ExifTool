@@ -39,6 +39,14 @@ A lightweight web-based tool to extract and visualize image metadata, including 
 - **Leaflet.js** – For rendering GPS coordinates on a map  
 - **HTML/CSS** – For structure and styling
 
+
+---
+
+## Screenshots
+
+<img width="1919" height="610" alt="Image" src="https://github.com/user-attachments/assets/e99441d2-21cb-4568-bf27-0cdedb8a2e2a" />
+<img width="1905" height="1079" alt="Image" src="https://github.com/user-attachments/assets/18b993a5-383b-42a0-b20a-3454aee7f8b7" />
+
 ---
 
 ## Credits
