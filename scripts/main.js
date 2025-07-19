@@ -98,7 +98,7 @@ function fakeAILookup(file) {
 
   setTimeout(() => {
     const fileName = file.name.toLowerCase();
-    let description = "An image of something interesting.";
+    let description = "Sorry! We couldn't identify the object in the image. Please upload a clearer image for accurate detection.";
 
     if (fileName.includes("taj")) description = "An image of the Taj Mahal, India.";
     else if (fileName.includes("beach")) description = "A beautiful beach scenery.";
